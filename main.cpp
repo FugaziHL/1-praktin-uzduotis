@@ -28,6 +28,57 @@ int main() {
     cout << "Iveskite valiuta (GBP, USD, INR): ";
     cin >> valiuta;
 
+    for (auto &c : valiuta) c = toupper(c);
 
+    double kursas = 0.0;
+
+    if (pasirinkimas == 1) {
+
+        if (valiuta == "GBP") kursas = GBP_Bendras;
+        else if (valiuta == "USD") kursas = USD_Bendras;
+        else if (valiuta == "INR") kursas = INR_Bendras;
+        else {
+            cout << "Nezinoma valiuta.\n";
+            return 0;
+        }
+
+        cout << fixed << setprecision(2);
+        cout << "1 EUR = " << kursas << " " << valiuta << "\n";
+        return 0;
+    }
+    cout << "Iveskite kieki: ";
+    cin >> kiekis;
+
+    if (pasirinkimas == 2) {
+
+        if (valiuta == "GBP") kursas = GBP_Pirkti;
+        else if (valiuta == "USD") kursas = USD_Pirkti;
+        else if (valiuta == "INR") kursas = INR_Pirkti;
+        else {
+            cout << "Nezinoma valiuta.\n";
+            return 0;
+        }
+        double rezultatas = kiekis * kursas;
+
+        cout << fixed << setprecision(2);
+        cout << "Uz " << kiekis << " EUR gausite " << rezultatas << " " << valiuta << "\n";
+    }
+    else if (pasirinkimas == 3) {
+
+        if (valiuta == "GBP") kursas = GBP_Parduoti;
+        else if (valiuta == "USD") kursas = USD_Parduoti;
+        else if (valiuta == "INR") kursas = INR_Parduoti;
+        else {
+            cout << "Nezinoma valiuta.\n";
+            return 0;
+        }
+        double rezultatas = kiekis / kursas;
+
+        cout << fixed << setprecision(2);
+        cout << "Pardave " << kiekis << " " << valiuta << " gausite " << rezultatas << " EUR\n";
+    }
+    else {
+        cout << "Neteisingas pasirinkimas.\n";
+    }
     return 0;
 }
