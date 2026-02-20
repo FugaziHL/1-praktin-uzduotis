@@ -18,5 +18,16 @@ int main() {
     string valiuta;
     double kiekis;
 
+    cout << "Valiutos keitykla\n";
+    cout << "1. Palyginti valiutos kursa\n";
+    cout << "2. Pirkti valiuta\n";
+    cout << "3. Parduoti valiuta\n";
+    cout << "Pasirinkite: ";
+    cin >> pasirinkimas;
+
+    cout << "Iveskite valiuta (GBP, USD, INR): ";
+    cin >> valiuta;
+
+
     return 0;
 }
